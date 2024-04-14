@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: teste
       POSTGRES_PASSWORD: teste
       POSTGRES_DB: teste
+    ports:
+      - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -15,6 +17,8 @@ services:
   nodejs_app:
     build: .
     container_name: node_app
+    environment:
+      DATABASE_URL: postgres://teste:teste@postgres_db:5432/biblioteca?schema=public
     depends_on:
       - postgres
     volumes:
