@@ -23,5 +23,6 @@ COPY --from=builder /app/dir ./dir
 COPY --from=builder /app/prisma ./prisma
 
 RUN npm install -g npm@9.2.0
+RUN npm install pm2 -g
 EXPOSE 8080
 CMD [  "npm", "run", "start:migrate:prod"]
