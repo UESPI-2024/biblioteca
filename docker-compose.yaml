@@ -13,9 +13,7 @@ services:
       - app_network
 
   nodejs_app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+    build: .
     container_name: node_app
     depends_on:
       - postgres
