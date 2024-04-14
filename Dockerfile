@@ -19,7 +19,7 @@ FROM node:18.12.1
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/build ./build
+COPY --from=builder /app/dir ./dir
 COPY --from=builder /app/prisma ./prisma
 
 RUN npm install -g npm@9.2.0
